@@ -1,0 +1,3 @@
+f1_api_url: http://ergast.com/api/f1
+server:
+  port : 8081
