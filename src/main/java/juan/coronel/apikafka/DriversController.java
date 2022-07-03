@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
+import java.util.List;
 import java.util.Random;
 
 @RestController
@@ -53,6 +54,12 @@ public class DriversController {
                     return null;
                 });
         return result;
+    }
+
+    @RequestMapping("/api/getsaveddrivers")
+    @GetMapping
+    public List<Driver> getSavedDrivers() {
+        return  driversRepository.findAll();
     }
 
     private Driver deserializeJsonToDriver(String jsonString) throws JsonProcessingException {
